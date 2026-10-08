@@ -1,28 +1,62 @@
 :root {
-  --ink: #17302b;
-  --muted: #66736f;
-  --paper: #f5f2ea;
-  --surface: #fffdf8;
-  --accent: #d96745;
-  --line: #ded8ca;
+  color-scheme: dark;
+  --ink: #f2f5f4;
+  --muted: #9ba1a6;
+  --paper: #121417;
+  --surface: rgb(30 34 40 / 84%);
+  --accent: #00ff88;
+  --accent-secondary: #00e5ff;
+  --line: rgb(155 161 166 / 18%);
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; background: radial-gradient(circle at top right, #e6eee4, var(--paper) 44%); color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
-button { border: 0; border-radius: 999px; cursor: pointer; font: inherit; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 92% 0%, rgb(0 229 255 / 8%), transparent 34rem),
+    radial-gradient(ellipse at 8% 12%, rgb(0 255 136 / 7%), transparent 32rem),
+    var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+button { border: 0; border-radius: 999px; cursor: pointer; font: inherit; transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
 button:disabled { cursor: wait; opacity: .55; }
+button:focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 3px; }
 .dashboard-shell { margin: 0 auto; max-width: 920px; min-height: 100vh; padding: 9vh 24px 72px; }
 .dashboard-header { max-width: 620px; }
-.eyebrow, .card-kicker { color: var(--accent); font-family: Arial, sans-serif; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-h1 { font-size: clamp(2.8rem, 7vw, 5.7rem); font-weight: 400; letter-spacing: 0; line-height: .95; margin: 16px 0; }
-.intro { color: var(--muted); font-size: 1.2rem; line-height: 1.5; }
+.eyebrow, .card-kicker { color: var(--accent); font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h1 { font-size: clamp(2.8rem, 7vw, 5.7rem); font-weight: 650; letter-spacing: -.065em; line-height: .98; margin: 16px 0; }
+.intro { color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
 .insights-section { margin-top: 72px; }
-.status-message { color: var(--muted); font-family: Arial, sans-serif; }
+.status-message { color: var(--muted); }
 .insights-list { display: grid; gap: 16px; }
-.insight-card { align-items: end; background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--accent); display: flex; gap: 28px; justify-content: space-between; padding: 24px; }
-.insight-card h2 { font-size: 1.35rem; font-weight: 400; line-height: 1.2; margin: 10px 0; max-width: 630px; }
-.insight-card p:not(.card-kicker) { color: var(--muted); font-family: Arial, sans-serif; line-height: 1.5; margin: 0; max-width: 630px; }
+.insight-card {
+  align-items: end;
+  background: linear-gradient(125deg, rgb(30 34 40 / 94%), rgb(25 29 34 / 82%));
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 10px 36px rgb(0 0 0 / 16%), -4px 0 20px rgb(0 255 136 / 7%);
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  padding: 24px;
+}
+.insight-card h2 { font-size: 1.35rem; font-weight: 600; letter-spacing: -.025em; line-height: 1.25; margin: 10px 0; max-width: 630px; }
+.insight-card p:not(.card-kicker) { color: var(--muted); line-height: 1.6; margin: 0; max-width: 630px; }
 .card-actions { display: flex; flex-shrink: 0; gap: 8px; }
-.card-actions button { background: var(--ink); color: white; padding: 11px 18px; }
-.card-actions .quiet-button { background: transparent; border: 1px solid var(--line); color: var(--ink); }
-@media (max-width: 640px) { .dashboard-shell { padding-top: 48px; } .insight-card { align-items: start; flex-direction: column; } .card-actions { width: 100%; } .card-actions button { flex: 1; } }
+.card-actions button { background: var(--accent); box-shadow: 0 0 20px rgb(0 255 136 / 18%); color: #07140e; font-weight: 700; padding: 11px 18px; }
+.card-actions button:not(:disabled):hover { background: #37ffa2; box-shadow: 0 0 26px rgb(0 255 136 / 32%); transform: translateY(-1px); }
+.card-actions .quiet-button { background: transparent; border: 1px solid var(--line); box-shadow: none; color: var(--muted); font-weight: 500; }
+.card-actions .quiet-button:not(:disabled):hover { background: rgb(155 161 166 / 8%); border-color: rgb(155 161 166 / 40%); color: var(--ink); }
+@media (max-width: 640px) {
+  .dashboard-shell { padding-top: 48px; }
+  .insights-section { margin-top: 56px; }
+  .insight-card { align-items: start; flex-direction: column; }
+  .card-actions { width: 100%; }
+  .card-actions button { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  button { transition: none; }
+}

@@ -1,4 +1,4 @@
-import { assignCardioTrack, assignStrengthTrack, type TrackLevel } from "./calculations";
+import { assignCardioTrack, assignStrengthTrack, type TrackLevel } from "./calculations.ts";
 
 export const PERSONALIZATION_THRESHOLDS = {
   minimumLoggingWeeks: 2,
