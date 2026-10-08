@@ -29,6 +29,46 @@ h1 { font-size: clamp(2.8rem, 7vw, 5.7rem); font-weight: 650; letter-spacing: -.
 .intro { color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
 .insights-section { margin-top: 72px; }
 .status-message { color: var(--muted); }
+.auth-gate {
+  background: linear-gradient(125deg, rgb(30 34 40 / 94%), rgb(25 29 34 / 82%));
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 10px 36px rgb(0 0 0 / 16%);
+  max-width: 520px;
+  padding: 28px;
+}
+.auth-gate h2 { font-size: 1.5rem; letter-spacing: -.03em; margin: 10px 0; }
+.auth-description { color: var(--muted); line-height: 1.6; margin: 0 0 24px; }
+.auth-form { display: grid; gap: 10px; }
+.auth-form label { font-size: .85rem; font-weight: 600; }
+.auth-input {
+  background: rgb(18 20 23 / 72%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+  min-height: 46px;
+  padding: 0 14px;
+}
+.auth-input:focus { border-color: var(--accent-secondary); outline: 2px solid rgb(0 229 255 / 20%); }
+.auth-submit {
+  background: var(--accent);
+  box-shadow: 0 0 20px rgb(0 255 136 / 18%);
+  color: #07140e;
+  font-weight: 700;
+  margin-top: 8px;
+  min-height: 46px;
+  padding: 0 18px;
+}
+.auth-submit:not(:disabled):hover { background: #37ffa2; box-shadow: 0 0 26px rgb(0 255 136 / 32%); }
+.auth-feedback { color: var(--accent-secondary); line-height: 1.5; overflow-wrap: anywhere; }
+.auth-error { color: #ff8f8f; }
+.account-bar { align-items: center; display: flex; gap: 16px; justify-content: space-between; margin-bottom: 20px; }
+.account-email { color: var(--muted); margin: 0; overflow-wrap: anywhere; }
+.account-email strong { color: var(--ink); font-weight: 500; }
+.account-bar .quiet-button { background: transparent; border: 1px solid var(--line); color: var(--muted); flex-shrink: 0; padding: 9px 15px; }
+.account-bar .quiet-button:not(:disabled):hover { background: rgb(155 161 166 / 8%); border-color: rgb(155 161 166 / 40%); color: var(--ink); }
 .insights-list { display: grid; gap: 16px; }
 .insight-card {
   align-items: end;
@@ -53,6 +93,8 @@ h1 { font-size: clamp(2.8rem, 7vw, 5.7rem); font-weight: 650; letter-spacing: -.
 @media (max-width: 640px) {
   .dashboard-shell { padding-top: 48px; }
   .insights-section { margin-top: 56px; }
+  .auth-gate { padding: 22px; }
+  .account-bar { align-items: start; flex-direction: column; }
   .insight-card { align-items: start; flex-direction: column; }
   .card-actions { width: 100%; }
   .card-actions button { flex: 1; }

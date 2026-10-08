@@ -14,10 +14,10 @@
 In Supabase Dashboard, open **Authentication > URL Configuration** and set:
 
 - Site URL: the Vercel production URL.
-- Redirect URLs: the production URL and the exact auth callback path used by the app.
+- Redirect URLs: the production URL and its `/dashboard` path. The email sign-in link returns to `/dashboard`.
 - For preview deployments, add `https://*.vercel.app/**` only if preview auth is required.
 
-Verify the callback URL matches the URL passed to `redirectTo`; mismatches can look like silent auth failures.
+Enable email sign-in under **Authentication > Providers > Email**. Verify the redirect URL matches the app's `redirectTo`; otherwise Supabase may reject the sign-in link.
 
 ## Production cron verification
 
